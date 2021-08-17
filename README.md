@@ -1,7 +1,7 @@
 # term-gpa-calculator
 A python script to calculate term GPA.
 
-GPA calculation
+GPA calculation:
 - A  --> 4.00
 - A- --> 3.7
 - B+ --> 3.3
