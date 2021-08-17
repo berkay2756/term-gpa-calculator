@@ -9,9 +9,13 @@ print("Welcome to term GPA calculator!")
 userinput = input("Write start or exit: ")
 
 while True:
-    
+    GPA = 0
+    allCredits = 0
+    allGradePoints = 0
+    grade = ""
+
     while userinput.lower() != "exit":
-        grade = input("Please enter your grade score: ")
+        grade = input("Please enter your grade: ")
         if grade == "end":
             break
         
@@ -50,16 +54,19 @@ while True:
         allCredits += credit
         allGradePoints += gradePoint
 
-    if userinput == "exit":
+    if userinput.lower() == "exit":
         print("Quitting...")
-    else:
-        GPA = allGradePoints / allCredits # solve divison by zero error
-        print("Your term GPA is", format(GPA,".2f"))
+    else:    
+        if allCredits == 0: # solution to zero division error
+            print("An error occurred. Possibly caused by the lack of credit input.")
+        else:
+            GPA = allGradePoints / allCredits
+            print("Your term GPA is", format(GPA,".2f"))
 
         question = input("Would you like to start over? ")
 
         if question == "yes":
-            print("Restarting calculator...")
+            print("Restarting the calculator...")
         elif question == "no":
             print("Alright, thank you for using the calculator!")
             sys.exit()
